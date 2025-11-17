@@ -1,0 +1,65 @@
+/* style.css */
+body {
+    background: black;
+    color: red;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+    margin: 0;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background: red;
+    color: black;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    margin: 12px;
+}
+
+.decor {
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+#qr {
+    margin-top: 30px;
+    max-width: 300px;
+    width: 80%;
+    border: 6px solid red;
+    border-radius: 12px;
+}
+
+#page2 {
+    display: none; /* controlado pelo script */
+    background: black;
+    color: red;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+.video-container {
+    margin-top: 30px;
+    padding: 20px;
+    border: 3px solid red;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.video-decor {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.initials {
+    font-size: 28px;
+    margin-top: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M+R</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="page1">
+    <div class="decor">❤️💋❤️💋❤️</div>
+    <h1>Para o meu amor nunca se esquecer o quanto eu o amo</h1>
+    <div class="decor">❤️💋❤️💋❤️</div>
+
+    <button class="btn" id="openBtn">clique aqui</button>
+
+    <h2>QR Code para acessar o site:</h2>
+    <img id="qr" alt="QR Code" 
+         src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://rafa-mg.github.io/rafae/" />
+  </div>
+
+  <div id="page2" aria-hidden="true">
+    <div class="decor">❤️💋❤️💋❤️</div>
+    <h1>Eu te amo, Miguel ❤️</h1>
+    <div class="decor">💋❤️💋❤️💋</div>
+
+    <!-- Áudio (coloque o arquivo audio.mp3 na mesma pasta) -->
+    <audio id="music" src="audio.mp3" preload="auto"></audio>
+
+    <!-- Vídeo com decoração (coloque o arquivo video.mp4 na mesma pasta) -->
+    <div class="video-container">
+      <div class="video-decor">❤️💋❤️💋❤️💋❤️💋❤️</div>
+      <video id="video" width="320" preload="metadata" playsinline>
+        <source src="video.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+      <div class="video-decor">💋❤️💋❤️💋❤️💋❤️</div>
+    </div>
+
+    <div class="initials">M + R</div>
+
+    <button class="btn" id="backBtn">voltar</button>
+  </div>
+
+<script>
+  const openBtn = document.getElementById('openBtn');
+  const backBtn = document.getElementById('backBtn');
+  const page1 = document.getElementById('page1');
+  const page2 = document.getElementById('page2');
+  const music = document.getElementById('music');
+  const video = document.getElementById('video');
+
+  function showPage2() {
+    page1.style.display = 'none';
+    page2.style.display = 'block';
+    page2.setAttribute('aria-hidden', 'false');
+
+    // tentativa de tocar mídia após interação do usuário (button click)
+    try {
+      music.currentTime = 0;
+      music.play().catch(()=>{ /* some browsers may prevent autoplay */ });
+    } catch(e) { console.log(e); }
+
+    try {
+      video.currentTime = 0;
+      video.play().catch(()=>{ /* some browsers may prevent autoplay */ });
+    } catch(e) { console.log(e); }
+  }
+
+  function showPage1() {
+    page2.style.display = 'none';
+    page2.setAttribute('aria-hidden', 'true');
+    page1.style.display = 'block';
+
+    // pausar mídias ao voltar
+    try { music.pause(); music.currentTime = 0; } catch(e){}
+    try { video.pause(); video.currentTime = 0; } catch(e){}
+  }
+
+  openBtn.addEventListener('click', showPage2);
+  backBtn.addEventListener('click', showPage1);
+
+  // estado inicial
+  page1.style.display = 'block';
+  page2.style.display = 'none';
+</script>
+</body>
+</html>
